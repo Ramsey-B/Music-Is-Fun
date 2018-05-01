@@ -15,23 +15,22 @@ function ItunesController() {
       const song = results[i];
       if (song.kind == 'song') {
         template += `
-            <li><a onclick="app.controllers.itunesCtrl.pauseAll(${[i]})">Artist: ${song.artist}</a></li>
-            <li>Title: ${song.title}</li>
-            <li>
-                <img src="${song.albumArt}" alt="">
-            </li>
-            <li>Collection: ${song.collection}</li>
-            <li>Price: ${song.price}</li>
-            <li>
-                <audio id="audio${[i]}" controls>
-                    <source src="${song.preview}" type="audio/mp3">
-                </audio>
-            </li>`
+        <div class="col-3">
+            <a onclick="app.controllers.itunesCtrl.pauseAll(${[i]})"><h2>Title: ${song.title}</h2></a>
+            <h3>Artist: ${song.artist}</h4>
+            <img src="${song.albumArt}" alt="">
+            <h4>Collection: ${song.collection}</h4>
+            <h4>Price: ${song.price}</h4>
+            <audio id="audio${[i]}" controls>
+              <source src="${song.preview}" type="audio/mp3">
+            </audio>
+        </div>`
       }
     }
     document.getElementById('songs-list').innerHTML = template
   }
 
+//public
   this.pauseAll = function pauseAll(num) {
     var sounds = document.getElementsByTagName('audio');
     for (var i = 0; i < sounds.length; i++) {
