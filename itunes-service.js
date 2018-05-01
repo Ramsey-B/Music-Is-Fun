@@ -6,12 +6,13 @@ function ItunesService(){
       var url = 'https://itunes.apple.com/search?term=' + artist;
       
       //changes the button to loading while songs load
-      $('#get-music-button').text('LOADING....');
+      $('#get-music-button').text('SEARCHING....');
       
       //modifies the objects to reduce the excess data
       return $.getJSON(url).then(function(response){
         var songList = response.results.map(function (song) {
                   return {
+                      kind: song.kind,
                       title: song.trackName,
                       albumArt: song.artworkUrl60,
                       artist: song.artistName,

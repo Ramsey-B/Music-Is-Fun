@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Is Fun!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="" />
 
 </head>
 
 <body>
-    <form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)">
+    <form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)" id="myForm">
         <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
         <div class="form-group">
             <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
@@ -19,9 +19,10 @@
         </div>
     </form>
     <div id="songs">
-
+        <ul id="songs-list">
+        </ul>
     </div>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="itunes-service.js"></script>
     <script src="itunes-controller.js"></script>
     <script src="app.js"></script>
