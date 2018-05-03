@@ -1,0 +1,53 @@
+.songs-box {
+    background-color: #333399;
+    margin: 3vh;
+    color: white;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #14143b;
+}
+
+.audio-player{
+    width: 100%;
+}
+
+.play-img {
+    position : relative;
+    opacity: 0;
+    top:20%; 
+    width:200px;
+    margin: auto;
+    right:0px;
+    z-index: 100;
+}
+
+.img-container{ 
+    position:relative;
+    width: 200px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #222227;
+}
+
+.img-container:hover .play-img {
+    opacity: .8;
+}
+
+.song-img:hover {
+    display: none;
+}
+
+body { 
+    background-image: url('https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b17f6829ef1b5f2e17ba1ec42974f2db&auto=format&fit=crop&w=500&q=60');
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 30;
+}
+
+#top {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}

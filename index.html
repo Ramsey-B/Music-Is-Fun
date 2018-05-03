@@ -6,26 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Is Fun!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)" id="myForm">
-        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
-        <div class="form-group">
-            <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
-            <button type="submit" class="btn btn-primary" id="get-music-button">Get Music</button>
-        </div>
-    </form>
-    <div id="songs">
-        <div class="row" id="songs-list">
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="itunes-service.js"></script>
-    <script src="itunes-controller.js"></script>
-    <script src="app.js"></script>
+    <main class="wrapper" id="top">
+        <nav class="navbar navbar-light bg-dark fixed-top d-flex justify-content-center">
+            <form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)" id="searchForm">
+                <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
+                <div class="form-group">
+                    <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
+                    <button type="submit" class="btn btn-outline-primary" id="get-music-button">Get Music</button>
+                </div>
+            </form>
+            <a href="#top"><button class='btn btn-outline-primary'>Scroll to Top</button></a>
+        </nav>
+        <section>
+            <div id="songs">
+                <div class="row d-flex justify-content-center mt-5" id="songs-list">
+                </div>
+            </div>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="itunes-service.js"></script>
+        <script src="itunes-controller.js"></script>
+        <script src="app.js"></script>
+    </main>
 </body>
 
 </html>
