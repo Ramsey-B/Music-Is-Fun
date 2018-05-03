@@ -46,8 +46,3 @@ body {
     background-size: cover;
     z-index: 30;
 }
-
-#top {
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-}
