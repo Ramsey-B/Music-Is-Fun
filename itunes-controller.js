@@ -18,12 +18,12 @@ function ItunesController() {
         <div class="card col-md-3 col-xs-12 songs-box">
             <a onclick="app.controllers.itunesCtrl.pauseAll(${[i]})"><h4>${song.title}</h4></a>
             <h5>${song.artist}</h5>
-            <div class="img-container" style="background-image: url(${song.albumArt});">
-              <a onclick="app.controllers.itunesCtrl.pauseAll(${[i]})"><img class="play-img" src="http://simpleicon.com/wp-content/uploads/play1.png"></a>
+            <div class="img-container" id="imgBox${[i]}" style="background-image: url(${song.albumArt});">
+              <a onclick="app.controllers.itunesCtrl.play(${[i]})"><img class="play-img" src="pics/play.png"></a>
             </div>
             <p class="mt-2">Collection: ${song.collection}</p>
             <h6>Price: $${song.price}</h6>
-            <audio id="audio${[i]}" class="audio-player" controls>
+            <audio id="audio${[i]}" class="audio-player" controls style="width: 80%;">
               <source src="${song.preview}" type="audio/mp3">
             </audio>
             <a href="${song.trackUrl}" target="_blank" class="btn btn-outline-success mt-2">Purchase</a>
@@ -33,25 +33,28 @@ function ItunesController() {
     document.getElementById('songs-list').innerHTML = template
   }
 
-var playing = 0;
+  var playing = 0;
 
-//public
-  this.pauseAll = function pauseAll(num) {
-    var sounds = document.getElementsByTagName('audio');
-    for (var i = 0; i < sounds.length; i++) {
-      if (sounds[i] == sounds[num]) {
-        if (playing == num) {
-          sounds[i].pause()
-          playing = -1
-        } else {
-          sounds[i].play()
-          playing = num
-        }
-      } else {
-        sounds[i].pause()
-      }
-    } 
+  //public
+  this.play = function(i) {
+    document.getElementById('audio' +i).play()
+    document.getElementById('imgBox' +i).innerHTML = `<a onclick="app.controllers.itunesCtrl.pause(${i})"><img class="play-img" src="pics/pause.png"></a>`
   }
+
+  this.pause = function(i) {
+    document.getElementById('audio' +i).pause()
+    document.getElementById('imgBox' +i).innerHTML = `<a onclick="app.controllers.itunesCtrl.play(${i})"><img class="play-img" src="pics/play.png"></a>`
+  }
+  
+  document.addEventListener('play', function (e) {
+    var audios = document.getElementsByTagName('audio');
+    for (var i = 0; i < audios.length; i++) {
+      if (audios[i] != e.target) {
+        audios[i].pause();
+        audios[i].innerHTML = `<a onclick="app.controllers.itunesCtrl.play(${i})"><img class="play-img" src="pics/play.png"></a>`
+      }
+    }
+  }, true);
 }
 
 
